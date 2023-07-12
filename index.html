@@ -15,82 +15,82 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                // Add minus icon for collapse element which is open by default
-                $(".collapse.show").each(function(){
-                    $(this).prev(".card-header").addClass("highlight");
-                });
-                
-                // Highlight open collapsed element 
-                $(".card-header .btn").click(function(){
-                    $(".card-header").not($(this).parents()).removeClass("highlight");
-                    $(this).parents(".card-header").toggleClass("highlight");
-                });
-            });
-            </script>
-
+<script src="index.js"></script>
     </head>
     <body>  
-        <nav>
-            home
-        </nav>
         <head>
             <!--Come back to this img at the end-->
             
-            <div class="container d-flex justify-content-center">
-                <img src="imgs/logo_2.png" class="img-fluid" alt="logo">
-              </div>
-        <section style="margin-top: 50px;">
-            
-            <div class="container d-flex justify-content-center">
-                <img src="imgs/why_us_title.png" class="img-fluid" alt="Why Us Title">
-              </div>
-            <br>
-            <br>
-            <article>
-            <div class="container">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <p> 
-                      Are you looking to get into Tennis for the first time? Or maybe to take your game to the next level? At Ace Tennis, we've got you covered. There are tons of reasons why Ace Tennis makes perfect sense for you:
-                    </p>
-                      <ul>
-                      <li><strong>Great Training @ an Affordable Price:</strong> At Ace Tennis, we believe in providing outstanding tennis training without the hefty price tag. Experience the perfect balance of quality coaching and affordability, allowing you to maximize your potential without breaking the bank.</li>
-                      <li><strong>Personalized Approach:</strong> With our 1-on-1 approach, your training is fully personalized for you. We work on your specific strengths and weaknesses and help you achieve your goals, whether they're to play competitively or just learn the game.</li>
-                      <li><strong>Flexible Training Options:</strong> We understand the demands of a busy lifestyle. That's why we offer flexible training options that accommodate your schedule. Choose from a variety of convenient time slots and training formats, ensuring that you can pursue your passion for tennis on your terms.</li>
-                      <li><strong>A Fun Way To Get Better:</strong> At Ace Tennis, we celebrate your accomplishments and progress. Training with us isn't a chore; in fact, it will be the most fun you've ever had playing tennis!</li>
+                <header>
+                    <img src="imgs/tennis_ball_water.jpg" class="img-fluid" alt="logo" style="width:100%; background-color: rgba(0,0, 0, .5);">
+                  <nav id="overlay-nav">
+                    <div class="logo " >
+                      <img src="imgs/logo_3.png" alt="Logo">
+                    </div>
+                    <ul>
+                      <li><a href="#section1">Why Us!</a/li>
+                      <li><a href="#section2">Our Approach</a></li>
+                      <li><a href="#section3">Pricing</a></li>
+                      <li><a href="#section4">FAQs</a></li>
+                      <li><a href="#section5">Contact Us</a></li>
+                      <li><button type="button" id="booknow" class="btn"><a href="">Book Now</a></button></li>
                     </ul>
-                    <p>
-                      Make the smart choice for your tennis development. Choose Ace Tennis for exceptional training at an affordable price. Unleash your potential, enhance your skills, and enjoy the journey to becoming a better player.
-                    </p>
+                  </nav>
+                  <div id="header-overlay">
+                    <h1 id="start"><span>Affordable</span> Pricing.</h1>
+                    <h1 id="start">Great <span>Training.</span></h1>
                   </div>
-                  <div class="col-lg-4">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <img src="imgs/racket2.png" class="img-fluid rounded" alt="Tennis Racket 2" id="sec1racket2">
-                      </div>
+                </header>
+                
+           
+                 
+                  
+              
+
+        <section style="margin-top: 50px;" id="section1">
+            
+            
+            <article>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <img src="imgs/why_us_title.png" class="img-fluid title" alt="Why Us Title" id="sec1img">
+                      <p>Are you looking to get into Tennis for the first time? Or maybe to take your game to the next level? At Ace Tennis, we've got you covered. There are tons of reasons why Ace Tennis makes perfect sense for you:</p>
+                      <ul>
+                        <li><strong>Great Training @ an Affordable Price:</strong> At Ace Tennis, we believe in providing outstanding tennis training without the hefty price tag. Experience the perfect balance of quality coaching and affordability, allowing you to maximize your potential without breaking the bank.</li>
+                        <li><strong>Personalized Approach:</strong> With our 1-on-1 approach, your training is fully personalized for you. We work on your specific strengths and weaknesses and help you achieve your goals, whether they're to play competitively or just learn the game.</li>
+                        <li><strong>Flexible Training Options:</strong> We understand the demands of a busy lifestyle. That's why we offer flexible training options that accommodate your schedule. Choose from a variety of convenient time slots and training formats, ensuring that you can pursue your passion for tennis on your terms.</li>
+                        <li><strong>A Fun Way To Get Better:</strong> At Ace Tennis, we celebrate your accomplishments and progress. Training with us isn't a chore; in fact, it will be the most fun you've ever had playing tennis!</li>
+                      </ul>
+                      <p>Make the smart choice for your tennis development. Choose Ace Tennis for exceptional training at an affordable price. Unleash your potential, enhance your skills, and enjoy the journey to becoming a better player.</p>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                      <img src="imgs/ball_on_racket.jpg" class="img-fluid rounded" alt="Tennis Ball" id="sec1racket2">
                     </div>
                   </div>
                 </div>
-              </div>
-            </article>
+              </article>
+              
+              
             <img src="imgs/Line Break.png" width="100%  " >
         </section>
-        <section style="margin-top:5px;">
+        <section style="margin-top:5px;" id="section2">
             <div class="container d-flex justify-content-center">
-                <img src="imgs/Title2.png" class="img-fluid" alt="A Unique Approach">
+                <img src="imgs/Title2.png" class="img-fluid title" alt="A Unique Approach">
               </div>
               <img src="imgs/Line Break.png" width="100%">
         </section>
-        <section style="margin-top: 15px;">
-            <div class="container d-flex justify-content-center">
-                <img src="imgs/faq_title.png" class="img-fluid" alt="A Unique Approach">
-              </div>
+
+        <section id="section3">
+<!--Pricing Info/Booking Gateway-->
+        </section>
+
+        <section style="margin-top: 15px;" id="section4"> 
 <!--FAQs-->
               <div class="container-lg">
                 <div class="row">
                     <div class="col-lg-12">
+                        <img src="imgs/faq_title.png" class="img-fluid title" alt="A Unique Approach">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
@@ -138,9 +138,9 @@
             </div>
               <img src="imgs/Line Break.png" width="100%">
         </section>
-        <section style="margin-top: 15px;">
+        <section style="margin-top: 15px;" id="section5">
             <div class="container d-flex justify-content-center">
-                <img src="imgs/Contact_Us_Title.png" class="img-fluid" alt="A Unique Approach">
+                <img src="imgs/Contact_Us_Title.png" class="img-fluid title" alt="A Unique Approach">
               </div>
               
         </section>

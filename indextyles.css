@@ -1,7 +1,5 @@
-
-#sec1racket2{
-    width:100%
-    
+li{
+    text-align: justify;
 }
 p{
     font-size: 18px;
@@ -66,4 +64,73 @@ ul{
 }
 .accordion .highlight i {
 	transform: rotate(180deg);
+}
+.title{
+    margin-bottom: 10px;
+}
+#overlay-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	
+	z-index: 9999;
+	display: flex; /* Use flexbox */
+	/* Align logo and links on the horizontal axis */
+	align-items: center; /* Center align logo and links vertically */
+	padding: 10px; /* Add padding as needed */
+  }
+  
+  #overlay-nav .logo img {
+	width: 100px;
+	height: auto;
+  }
+  
+  #overlay-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex; /* Use flexbox */
+	align-items: center; /* Center align the links vertically */
+  }
+  
+  #overlay-nav ul li {
+	margin: 0 10px; /* Adjust the margin between the links */
+  }
+  
+  #overlay-nav ul li a {
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+  /* Styling for the active link */
+  #overlay-nav ul li a.active {
+	color: #2bf70d;
+  }
+ 
+  
+  #header-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-57%);
+	text-align: center;
+	font-weight:bolder;
+	background-color: rgba(0,0, 0, .5);
+	width:800px;
+	
+}
+  
+#booknow{
+	background-color:#2bf70d;	
+	border-color: white;
+	border-radius: 0px;
+}
+#start{
+	font-size:79px;
+	color: white;
+}
+span{
+	color: #bec200;
 }
