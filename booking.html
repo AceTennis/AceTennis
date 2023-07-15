@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="bookingstyle.css">
+       
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="plan-box" id="cheap">
+                  <h2>Beginner Classes</h2>
+                  <p class="plan-price">$25 per class</p>
+                  <p class="plan-description">Our beginner class is perfect for those who are new to the game. You'll learn the core skills you need to take your game to the next level.</p>
+                  <a href="#" class="btn btn-primary" onclick="showTimeslots();hideBoxes()">Book Now</a>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="plan-box" id="more">
+                  <h2>Intermediate-Advanced Classes</h2>
+                  <p class="plan-price">$35 per class</p>
+                  <p class="plan-description">Take your skills to the next level in this higher-level class. Hone your strengths and improve your weaknesses. Perfect for those looking to play competitive tennis.</p>
+                  <a href="#" class="btn btn-primary" onclick="showTimeslots();hideBoxes()" >Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="timeslots-container" style="display: none;">
+            <!-- Time slots will be dynamically generated here -->
+          </div>
+          
+          
+          
+       
+          <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+            import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+        
+            const firebaseConfig = {
+            apiKey: "AIzaSyDd09989D3O9QrsCOz_deiryKYO2DFB_WA",
+            authDomain: "acetennis-50612.firebaseapp.com",
+            projectId: "acetennis-50612",
+            storageBucket: "acetennis-50612.appspot.com",
+            messagingSenderId: "1059028038301",
+            appId: "1:1059028038301:web:5341ccd8e3a0248f0eda74"
+          };   
+
+          window.showTimeslots = function() {
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  for (const day of days) {
+    const docRef = doc(collection(db, "Timeslots"), day);
+
+    getDoc(docRef)
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const timeSlots = docSnapshot.data().slots;
+          console.log(`Time slots for ${day}:`, timeSlots);
+          displayTimeSlots(day, timeSlots); // Call the displayTimeSlots function with day and timeSlots
+        } else {
+          console.log(`No document found for ${day}`);
+        }
+      })
+      .catch((error) => {
+        console.log(`Error fetching document for ${day}:`, error);
+      });
+  }
+
+  document.getElementById("timeslots-container").style.display = "block";
+};
+
+function displayTimeSlots(day, timeSlots) {
+  const timeslotsContainer = document.getElementById("timeslots-container");
+
+  const dayHeading = document.createElement("h3");
+  dayHeading.textContent = day;
+  timeslotsContainer.appendChild(dayHeading);
+
+  const slotsList = document.createElement("ul");
+
+  for (const slot of timeSlots) {
+    const slotItem = document.createElement("li");
+    slotItem.textContent = slot;
+    slotsList.appendChild(slotItem);
+  }
+
+  timeslotsContainer.appendChild(slotsList);
+}
+          </script>
+ <script>
+   function hideBoxes() {
+  const cheapBox = document.getElementById("cheap");
+  const moreBox = document.getElementById("more");
+
+  cheapBox.style.display = "none";
+  moreBox.style.display = "none";
+}
+
+
+ </script>
+ 
+ 
+</body>
+<footer>
+     <!--reg bootstrap and styles for everything else-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+     
+    </footer>
+</html>
