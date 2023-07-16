@@ -32,11 +32,13 @@
               </div>
             </div>
           </div>
-          
-          <div id="timeslots-container" style="display: none;">
-            <!-- Time slots will be dynamically generated here -->
+          <div id="timeslots-wrapper">
+            <div id="timeslots-container" style="display: none;">
+                <!-- Time slots will be dynamically generated here -->
+              </div>
+              
           </div>
-          
+         
           
           
        
@@ -57,6 +59,9 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
+  const timeslotsContainer = document.getElementById("timeslots-container");
+  timeslotsContainer.innerHTML = ""; // Clear previous content
+
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   for (const day of days) {
@@ -67,7 +72,7 @@
         if (docSnapshot.exists()) {
           const timeSlots = docSnapshot.data().slots;
           console.log(`Time slots for ${day}:`, timeSlots);
-          displayTimeSlots(day, timeSlots); // Call the displayTimeSlots function with day and timeSlots
+          displayTimeSlots(day, timeSlots, timeslotsContainer); // Call the displayTimeSlots function with day, timeSlots, and the timeslotsContainer
         } else {
           console.log(`No document found for ${day}`);
         }
@@ -77,27 +82,27 @@
       });
   }
 
-  document.getElementById("timeslots-container").style.display = "block";
+  timeslotsContainer.style.display = "block";
 };
 
-function displayTimeSlots(day, timeSlots) {
-  const timeslotsContainer = document.getElementById("timeslots-container");
-
+function displayTimeSlots(day, timeSlots, container) {
   const dayHeading = document.createElement("h3");
   dayHeading.textContent = day;
-  timeslotsContainer.appendChild(dayHeading);
-
-  const slotsList = document.createElement("ul");
+  container.appendChild(dayHeading);
 
   for (const slot of timeSlots) {
-    const slotItem = document.createElement("li");
-    slotItem.textContent = slot;
-    slotsList.appendChild(slotItem);
+    const slotButton = document.createElement("button");
+    slotButton.textContent = slot;
+    slotButton.addEventListener("click", () => handleTimeslotSelection(day, slot));
+    container.appendChild(slotButton);
   }
-
-  timeslotsContainer.appendChild(slotsList);
 }
-          </script>
+
+
+
+
+</script>
+
  <script>
    function hideBoxes() {
   const cheapBox = document.getElementById("cheap");

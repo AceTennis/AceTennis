@@ -37,4 +37,18 @@ background-color: #2bf70d;
 .hide {
     display: none;
   }
+  button{
+    background-color: white;
+    border-radius: 10px;
+  }
+  #timeslots-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+  #timeslots-container {
+    /* Other styles for the timeslots container */
+  }
   
