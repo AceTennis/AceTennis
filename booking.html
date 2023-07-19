@@ -11,6 +11,9 @@
        
         
     </head>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
     <body>
         <div class="container">
             <div class="row">
@@ -45,8 +48,8 @@
           <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
             import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
-        
-            const firebaseConfig = {
+           
+           const firebaseConfig = {
             apiKey: "AIzaSyDd09989D3O9QrsCOz_deiryKYO2DFB_WA",
             authDomain: "acetennis-50612.firebaseapp.com",
             projectId: "acetennis-50612",
@@ -86,14 +89,13 @@
 };
 
 function displayTimeSlots(day, timeSlots, container) {
-  const dayHeading = document.createElement("h3");
+  const dayHeading = document.createElement("h2");
   dayHeading.textContent = day;
   container.appendChild(dayHeading);
 
   for (const slot of timeSlots) {
     const slotButton = document.createElement("button");
     slotButton.textContent = slot;
-    slotButton.addEventListener("click", () => handleTimeslotSelection(day, slot));
     container.appendChild(slotButton);
   }
 }
